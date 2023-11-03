@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>Lab10</title>
+<style>
+body {display: flex; 
+justify-content: center;}
+
+section {width: 600px;}
+
+header {padding: 5px; 
+border: 2px solid black;
+margin-bottom: 10px;
+display: flex;
+justify-content: space-around;}
+
+article {padding: 20px; 
+display: flex;
+justify-content: space-between;
+border: 2px solid black;}
+
+img {border: 1px solid gray;}
+
+article > div:first-child {width: 55%;}
+article > div:last-child {width: 40%;}
+
+p, a {text-align: justify; 
+font-size: 18px;}
+</style>
+</head>
+<body>
+	<section>
+		<header>
+			<div>
+				<input type="button" value="Ч/Б" onclick="colorchange('black', 'white')">
+				<input type="button" value="Б/Ч" onclick="colorchange('white', 'black')">
+				<input type="button" value="Г/Ч" onclick="colorchange('blue', 'black')">
+			</div>
+			<div>
+				<input type="button" value="Вкл/выкл рисунки" onclick="turnPictures()">
+			</div>
+			<div>
+				<input type="button" value="18px" onclick="fontSize('18px')">
+				<input type="button" value="20px" onclick="fontSize('20px')">
+				<input type="button" value="24px" onclick="fontSize('24px')">
+			</div>
+		</header>
+		<article>
+			<div>
+				<h2>Цветы</h2>
+				<p>Цветок — это видоизменённый укороченный побег, 
+				обладающий ограниченным ростом. </p>
+				<img src="https://wallbox.ru/wallpapers/main2/201732/nebo-lepestki-podsolnuhi.jpg" width="308">
+				<p>Цветок развивается из цветочной 
+				(генеративной) почки и занимает на растении верхушечное или пазушное
+				положение. Побеги, на которых формируются цветки, называют цветоносами. </p>
+				<h2>Уход</h2>
+				<p>В процессе выращивания комнатных растений следует 
+				обеспечить им необходимые условия для выживания 
+				и дальнейшего роста.</p>
+			</div>
+			<div>
+			<p>Большинство комнатных растений пересаживают весной - или в начале лета. 
+			Соответственно, покупать их лучше именно в это время.</p>
+			<p>Если цветок был куплен в магазине, на горшке должна быть 
+			краткая инструкция с названием, температурой содержания, 
+			информацией о частоте полива. Окна восточного, северо-восточного, 
+			западного и северо-западного направлений считаются идеальным местом 
+			для комнатных растений.</p>
+			<img src="https://aikidzin.ru/wp-content/uploads/e/8/b/e8b8f5436e7befd19f1d804b8d79f535.jpeg" width="224">
+			<a href="#">Подробнее...</a>
+			</div>
+		</article>
+		</section>
+<script>
+function colorchange(font, bg){
+let text = document.querySelectorAll('p,a,h2');
+let background = document.getElementsByTagName('article')[0];
+for (let elem of text)
+elem.style.color = font;
+background.style.backgroundColor = bg;
+}
+
+function turnPictures(){
+let pics = document.images;
+if (!pics[0].getAttribute('hidden')){
+for (let elem of pics)
+elem.setAttribute('hidden', 'true');
+}
+else{
+for (let elem of pics)
+elem.removeAttribute('hidden');
+}}
+
+function fontSize(size){
+let text = document.querySelectorAll('p');
+for (let elem of text)
+elem.style.fontSize = size;
+}
+</script>
+</body>
+</html>
